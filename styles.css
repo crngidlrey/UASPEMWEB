@@ -1,0 +1,449 @@
+:root {
+    --primary-color: #607B9B;
+    --primary-dark: #4A5F78;
+    --primary-light: #7B93AF;
+    --secondary-color: #E8EEF4;
+    --accent-color: #FFD700;
+    --text-dark: #2C3E50;
+    --text-light: #FFFFFF;
+    --error-color: #E74C3C;
+    --success-color: #2ECC71;
+    --warning-color: #F1C40F;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 100px auto;
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(96, 123, 155, 0.2);
+}
+
+button {
+    background: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.notification {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.notification.error {
+    background-color: #FDEAEA;
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+}
+
+.notification.success {
+    background-color: #E8F8F5;
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--text-light);
+    margin: 2vh auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 85%;
+    max-width: 700px;
+    max-height: 90vh; /* Batasi tinggi maksimal */
+    overflow-y: auto; /* Aktifkan scroll */
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) #f1f5f9;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+.modal-content form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem; /* Tambah gap antar elemen */
+    padding-right: 1rem; /* Ruang untuk scrollbar */
+    padding-bottom: 80px; /* Beri ruang untuk tombol submit */
+    position: relative;
+}
+
+.modal-content label {
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+    border: 0.5px solid #2C3E50;
+    border-radius: 15px;
+    padding: 0.6rem;
+    font-size: 0.95rem;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+}
+.modal-content input:focus,
+.modal-content textarea:focus {
+    border-color: var(--primary-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(96, 123, 155, 0.1);
+}
+.modal-content input[type="file"] {
+    border: 1.5px dashed #e1e5ea;
+    background-color: #f8fafc;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+.modal-content button[type="submit"] {
+    position: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 1rem 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    z-index: 10;
+}
+.modal-content button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(96, 123, 155, 0.2);
+}
+
+
+.close:hover {
+    background: #e2e8f0;
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-height: 768px) {
+    .modal-content {
+        height: 98vh;
+        margin: 1vh auto;
+    }
+    
+    .modal-content .form-group {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit, .btn-delete {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    width: auto;
+}
+
+.btn-edit {
+    background-color: var(--warning-color);
+}
+
+.btn-delete {
+    background-color: var(--error-color);
+}
+
+.nav-header {
+    background: var(--primary-color);
+    padding: 1rem 2rem;
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logout-btn {
+    width: auto;
+    background: transparent;
+    border: 2px solid var(--text-light);
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.1);
+}
+.delete-confirmation {
+    text-align: center;
+    padding: 1rem;
+}
+
+.delete-confirmation p {
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.delete-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+.btn-cancel {
+    background: #f1f5f9;
+    color: var(--text-dark);
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #e2e8f0;
+}
+
+.delete-actions .btn-delete {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: auto;
+}
+
+.delete-actions .btn-delete:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+}
+
+/* Animasi modal */
+.modal-content {
+    animation: modalSlide 0.3s ease-out;
+}
+
+@keyframes modalSlide {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Styling untuk kolom gambar */
+.book-cover {
+    width: 80px;
+    padding: 0.5rem !important;
+}
+
+.cover-thumbnail {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.cover-thumbnail:hover {
+    transform: scale(1.8);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 10;
+    position: relative;
+}
+
+.no-cover {
+    width: 60px;
+    height: 80px;
+    background: #f1f5f9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #64748b;
+    text-align: center;
+    border: 1px dashed #cbd5e1;
+}
+
+/* Sesuaikan lebar tabel */
+.container {
+    max-width: 1300px; /* Perlebar container untuk mengakomodasi kolom baru */
+}
+
+/* Responsif untuk gambar */
+@media screen and (max-width: 768px) {
+    .book-cover {
+        width: 60px;
+    }
+    
+    .cover-thumbnail {
+        width: 40px;
+        height: 60px;
+    }
+    
+    .no-cover {
+        width: 40px;
+        height: 60px;
+        font-size: 0.7rem;
+    }
+}
